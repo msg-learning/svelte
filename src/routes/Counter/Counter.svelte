@@ -1,6 +1,8 @@
 <script lang="ts">
     export let count = 0;
 
+    $: doubled = count * 2;
+
     function increase() {
         count++;
     }
@@ -11,7 +13,9 @@
 </script>
 
 <main>
-    <h1 data-testid="count">{count}</h1>
+
+    <h1>Counter<small data-testid="count">{count}</small></h1>
+    <h2>Doubled: <small>{doubled}</small></h2>
     <div class="actions">
         <button data-testid="increase" on:click={increase}>+</button>
         <button data-testid="decrease" on:click={decrease}>-</button>
